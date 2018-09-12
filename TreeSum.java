@@ -59,13 +59,12 @@ public class TreeSum{
 					
 					float sumTree; 
 					
-					for (int i = xCoordinate; i + treeSize <column;i++)
-						for (int j = yCoordinate; j + treeSize<row; j++)
+					for (int i = xCoordinate; i<column;i++)
+						for (int j = yCoordinate; j<row; j++)
 						{
 							if ((i + treeSize < column) && (j + treeSize < row))
 							{
 								System.out.println(dataArray[i][j]);
-								//sumTree += dataArray[][];
 								System.out.println("true");
 								
 							}

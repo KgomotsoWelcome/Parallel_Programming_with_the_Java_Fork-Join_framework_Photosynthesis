@@ -19,43 +19,64 @@ public class TreeSum{
 				String textnum = scanfile.nextLine();
 				String[] arraySize = textnum.split(" ");
 				
-				int arraySizeX = Integer.parseInt(arraySize[0]);
-				int arraySizeY = Integer.parseInt(arraySize[1]);
+				int row = Integer.parseInt(arraySize[0]);
+				int column = Integer.parseInt(arraySize[1]);
 				
-				//Size of Array.
-				System.out.println(arraySizeX);
-				System.out.println(arraySizeY);
-				
-				float dataArray [][] = new float [arraySizeX][arraySizeY];
-				String arr[];
+				float dataArray [][] = new float [row][column];
 				String avgSunlight = scanfile.nextLine();
-				arr = avgSunlight.split(" ");
+				System.out.println(avgSunlight);
+				String [] arr = avgSunlight.split(" ");
 				
 				System.out.println("**********2d Array********");
 				int count=0;
-				for  (int j = 0 ; j<arraySizeY ; j++)
+				for  (int j = 0 ; j<column ; j++)
 				{
 					int counter = 0;
-					for (int i = count ; i<arraySizeX+count ; i++)
+					for (int i = count ; i<row+count ; i++)
 					{
 						System.out.print(arr[i]+" ");
 						dataArray[j][counter]= Float.parseFloat(arr[i]);
 						counter++;
 					}
-					count=count+arraySizeX;
+					count=count+row;
 					System.out.println();
 				}
-				  
-				//inserting data into array.
-				/**
+				
+				/**summing up sunlight
+				 * of each tree
+				 */ 
+				int numOfTrees = Integer.parseInt(scanfile.nextLine());
+				int sumTotal; 
+				 
 				while (scanfile.hasNextLine())
 				{
-					scanfile.nextLine();
-					scanfile.nextLine();
-					System.out.println(scanfile.nextLine());
+					String tree = scanfile.nextLine();
+					String [] treeData = tree.split(" ");
+					
+					int yCoordinate = Integer.parseInt(treeData[0]);
+					int xCoordinate = Integer.parseInt(treeData[1]);
+					int treeSize = Integer.parseInt(treeData[2]);
+					
+					float sumTree; 
+					
+					for (int i = xCoordinate; i + treeSize <column;i++)
+						for (int j = yCoordinate; j + treeSize<row; j++)
+						{
+							if ((i + treeSize < column) && (j + treeSize < row))
+							{
+								System.out.println(dataArray[i][j]);
+								//sumTree += dataArray[][];
+								System.out.println("true");
+								
+							}
+						}
+						
+					
+					//String treeData [] = scanfile.nextLine().split();
+					//scanfile.nextLine();
+					//System.out.println(scanfile.nextLine());
 					
 				}
-				*/ 
 			}
 			
 			catch(FileNotFoundException e)
@@ -63,10 +84,16 @@ public class TreeSum{
 				System.out.println("File not found");
 			}
 	}
+	
+	public static void sumTree()
+	{
+		
+	}
 		
 	public static void main(String []args)
 	{
 		readfile();
+		sumTree();
 	}
 }
 	

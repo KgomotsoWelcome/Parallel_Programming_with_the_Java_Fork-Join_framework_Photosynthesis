@@ -1,0 +1,37 @@
+
+*** These modified files were found in JOE when it aborted on Sat Sep 15 23:42:34 2018
+*** JOE was aborted because the terminal closed
+
+*** File 'BashScript'
+#!bin/bash
+
+for i in {10000..1000000..10000}; do 
+		
+	
+	echo | head -2 sample_input.txt > "Testfile"$i".txt";
+	echo $i >> "Testfile"$i".txt";
+	echo | tail -$i "sample_input.txt" >> "Testfile"$i".txt	java TreeSequential "Testfile"$i $i >> SequentialResults.csv;
+	rm "Testfile"$i".txt";
+	
+	done; 
+	 	 
+	
+
+*** File '(Unnamed)'
+file2
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+BashScript
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc

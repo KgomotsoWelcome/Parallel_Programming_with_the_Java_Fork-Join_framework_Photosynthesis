@@ -1,0 +1,14 @@
+#!bin/bash
+
+for i in {10000..1000000..10000}; do 
+		
+	
+	echo | head -2 sample_input.txt > "Testfile"$i".txt";
+	echo $i >> "Testfile"$i".txt";
+	echo | tail -$i "sample_input.txt" >> "Testfile"$i".txt";
+	java TreeParallel "Testfile"$i $i >> ParalleResults.csv;
+	rm "Testfile"$i".txt";
+	
+	done; 
+	 	 
+	

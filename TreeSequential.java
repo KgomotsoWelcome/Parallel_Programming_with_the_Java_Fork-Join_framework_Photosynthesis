@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
+import java.lang.*;
 //import java.util.concurrent.ForkJoinPool;
 
 public class TreeSequential
@@ -48,7 +49,7 @@ public class TreeSequential
 		}
 		catch(FileNotFoundException e)
 		{
-			System.out.println("File not found");
+			//System.out.println("File not found");
 		}
 	}
 	
@@ -146,7 +147,7 @@ public class TreeSequential
 		}
 		catch(FileNotFoundException e)
 		{
-			System.out.println("File not created.");
+			//System.out.println("File not created.");
 		}
 		
 		outputStream.println(TreeAverage);
@@ -200,7 +201,7 @@ public class TreeSequential
 	}
 	private static float tock()
 	{
-		return (System.currentTimeMillis() - startTime) / 1000.0f; 
+		return (System.currentTimeMillis() - startTime); 
 	}
 	
 	
@@ -209,11 +210,14 @@ public class TreeSequential
 	{
 		TreeSequential treeSequential = new TreeSequential();
 		
-		treeSequential.tick();
+		System.gc();
+		//System.out.println("Cleanup completed...");
 		
 		treeSequential.readfile(args[0]);
 		treeSequential.createArray();
+		treeSequential.tick();
 		treeSequential.sumTree();
+		float time = treeSequential.tock();
 		treeSequential.writeToFile(args[1]);
 		treeSequential.convertTrees();
 		treeSequential.getTrees();
@@ -222,9 +226,9 @@ public class TreeSequential
 		treeSequential.getArraySize();
 		treeSequential.getDataArray();
 		
-		float time = treeSequential.tock();
 		
-		System.out.println("Run took "+ time +" seconds");
+		
+		System.out.println(args[1]+","+time);
 	}
 }
 	
